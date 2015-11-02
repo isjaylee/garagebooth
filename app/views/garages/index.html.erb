@@ -3,39 +3,34 @@
     <div id="map" class="clearfix">
     </div>
     <div id="over_map" class="right">
-      <form>
+      <%= form_tag items_search_path, method: :get do |f| %>
         <div class="row">
           <div class="large-12 columns">
-            <label>Input Label
-              <input type="text" placeholder="Search Items" />
-            </label>
+            <%= label_tag "Search" %>
+            <%= text_field_tag :search, nil, placeholder: "appliances, clothes, etc.", size: 30 %>
           </div>
         </div>
+
         <div class="row">
           <div class="large-12 columns">
-            <label>Input Label
-              <input type="text" placeholder="Location" />
-            </label>
+            <%= label_tag "Location" %>
+            <%= text_field_tag :location, nil, placeholder: "denver, miami, etc." %>
           </div>
         </div>
+
         <div class="row">
           <div class="large-12 columns">
-            <label>Select Box
-              <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
-            </label>
+            <%= label_tag "Category" %>
+            <%= select_tag :category, options_for_select(Category.all.map{ |f| [f.name, f.id] }) %>
           </div>
         </div>
+        
         <div class="row">
           <div class="large-12 columns">
-            <a href="#" class="button success">Search</a>
+            <%= submit_tag 'Search', class: "button success" %>
           </div>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
 </div>

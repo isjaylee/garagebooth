@@ -99,7 +99,55 @@
 #over_map {
   background: #2980b9;
   position: absolute;
-  right: 230px;
+  right: 100px;
   top: 10px;
   z-index: 99;
+}
+
+// Login Form
+.signup-panel{
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 30px;
+  i {
+    font-size: 30px;
+    line-height: 30px;
+    color: #999;
+  }
+  form {
+    input, span {
+      height: 50px;
+    }
+  }
+  .welcome {
+    font-size: 26px;
+    text-align: center;
+    margin-left: 0;
+  }
+  label {
+    color: black;
+  }
+  p {
+    font-size: 13px;
+    font-weight: 200;
+    margin-left: 25%;
+  }
+  .button {
+    margin-left: 35%;
+  }
+}
+// end Login Form
+
+.tabs dd > a, .tabs .tab-title > a{
+  outline: none;
+}
+
+form label {
+  color: black;
+}
+
+.alert-box {
+  margin-top: 2em;
+  padding-bottom: 0;
 }

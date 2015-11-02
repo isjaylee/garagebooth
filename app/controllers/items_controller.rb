@@ -1,0 +1,32 @@
+class ItemsController < ApplicationController
+
+  def create
+    @garage = Garage.find(params[:garage_id])
+    @booth = @garage.booths.find(params[:booth_id])
+    @item = @booth.items.build(item_params)
+    if @item.save
+      redirect_to [@garage, @booth]
+    else
+      render :back
+    end
+  end
+
+  def search
+    if params.present?
+      @items = Item.search(params)
+    else
+      @items = Item.all
+    end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  private
+
+    def item_params
+      params.require(:item).permit(:name, :description, :price, :category_id)
+    end
+
+end

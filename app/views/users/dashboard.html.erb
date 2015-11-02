@@ -1,0 +1,39 @@
+<div class="row">
+  <h1 class="text-center">My Dashboard</h1>
+  <ul class="tabs" data-tab data-options="deep_linking: true; scroll_to_content: false">
+    <li class="tab-title active"><a href="#user-info">User Info</a></li>
+    <li class="tab-title"><a href="#your-garages">Your Garages</a></li>
+  </ul>
+  <div class="tabs-content">
+    <hr>
+    <div class="content active" id="user-info">
+      <%= render partial: "devise/user_info" %>
+    </div>
+    <div class="content" id="your-garages">
+      <%= link_to "<i class='fa fa-plus'></i> Add a Garage".html_safe, new_garage_path, class: "tiny button success round" %>
+      <table>
+        <thead>
+          <tr>
+            <th width="200">Garage</th>
+            <th>Address</th>
+            <th width="150">Booths</th>
+            <th width="150"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @garages.each do |garage| %>
+            <tr>
+              <td><%= garage.name %></td>
+              <td><%= garage.address1 %></td>
+              <td><%= garage.booths.count %></td>
+              <td>
+                <%= link_to "Edit", edit_garage_path(garage) %>
+                <%= link_to "Delete", garages_path(garage), method: :delete, data: {confirm: "Are you sure?"} %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
