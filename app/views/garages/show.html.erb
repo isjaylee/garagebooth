@@ -35,7 +35,7 @@
           <tr>
             <td><%= link_to booth.name, garage_booth_path(@garage, booth) %></td>
             <td><%= booth.start_date.strftime("%B %d, %Y") %></td>
-            <td><%= booth.end_date.strftime("%B %d, %Y") %></td>
+            <td><%= booth.stop_date.strftime("%B %d, %Y") %></td>
             <td><%= booth.items.count %></td>
           </tr>
         <% end %>

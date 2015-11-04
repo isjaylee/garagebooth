@@ -1,5 +1,5 @@
 class Booth < ActiveRecord::Base
-  belongs_to :garage
+  belongs_to :user
   has_many :items
-  validates :name, :start_date, :end_date, presence: true
+  validates :name, :address1, :city, :state, :zipcode, :start_date, :stop_date, presence: true
 end

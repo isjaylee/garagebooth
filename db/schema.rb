@@ -17,35 +17,27 @@ ActiveRecord::Schema.define(version: 20151026202456) do
   enable_extension "plpgsql"
 
   create_table "booths", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name",        limit: 255
+    t.string   "address1",    limit: 255
+    t.string   "address2",    limit: 255
+    t.string   "city",        limit: 255
+    t.string   "state",       limit: 255
+    t.string   "zipcode",     limit: 255
+    t.string   "email",       limit: 255
+    t.string   "phone",       limit: 255
+    t.text     "description"
     t.datetime "start_date"
-    t.datetime "end_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "garage_id"
-  end
-
-  add_index "booths", ["garage_id"], name: "index_booths_on_garage_id", using: :btree
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name", limit: 255
-  end
-
-  create_table "garages", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "address1",   limit: 255
-    t.string   "address2",   limit: 255
-    t.string   "city",       limit: 255
-    t.string   "state",      limit: 255
-    t.string   "zipcode",    limit: 255
-    t.string   "email",      limit: 255
-    t.string   "phone",      limit: 255
+    t.datetime "stop_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  add_index "garages", ["user_id"], name: "index_garages_on_user_id", using: :btree
+  add_index "booths", ["user_id"], name: "index_booths_on_user_id", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", limit: 255
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "name",        limit: 255

@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :garages do
-    resources :booths do
-      resources :items
-    end
+  resources :booths do
+    resources :items
   end
 
   resources :categories

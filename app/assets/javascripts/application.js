@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.slick
 //= require foundation
+//= require foundation-datepicker
 //= require_tree .
 $(function(){ $(document).foundation(); });
 
