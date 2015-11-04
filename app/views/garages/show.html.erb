@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h3><%= @garage.name %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="panel">
+      <h5>This is a regular panel.</h5>
+      <p>It has an easy to override visual style, and is appropriately subdued.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Booths</h3>
+    <%= link_to "<i class='fa fa-plus'></i> Add a Booth".html_safe, new_garage_booth_path(@garage), class: "tiny button success round" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <table>
+      <thead>
+        <tr>
+          <th width="250">Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Number of Items</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @booths.each do |booth| %>
+          <tr>
+            <td><%= link_to booth.name, garage_booth_path(@garage, booth) %></td>
+            <td><%= booth.start_date.strftime("%B %d, %Y") %></td>
+            <td><%= booth.end_date.strftime("%B %d, %Y") %></td>
+            <td><%= booth.items.count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -15,6 +15,6 @@ clothes = Category.where(name: "Clothes").first_or_create(name: "Clothes")
 
 user = User.create(email: "bob@example.com", password: "pw")
 
-garage = Garage.create(name: "My Garage", user_id: user.id)
+garage = Garage.create(name: "My Garage", address1: "123 Main Street", city: "Saint Paul", state: "MN", zipcode: "55102", user_id: user.id)
 
-booth = Booth.create(name: "My Booth", garage_id: garage.id, start_date: "01/01/2015", end_date: "01/15/2015")
+booth = Booth.create(name: "My Booth", garage_id: garage.id, start_date: "2015/01/01", end_date: "2015/01/15")

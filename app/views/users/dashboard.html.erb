@@ -23,7 +23,7 @@
         <tbody>
           <% @garages.each do |garage| %>
             <tr>
-              <td><%= garage.name %></td>
+              <td><%= link_to garage.name, garage_path(garage) %></td>
               <td><%= garage.address1 %></td>
               <td><%= garage.booths.count %></td>
               <td>
