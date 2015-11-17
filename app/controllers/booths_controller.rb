@@ -1,7 +1,7 @@
 class BoothsController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :find_booth, only: [:show]
-  before_action :is_booth_owner?, only: [:show]
+  # before_action :is_booth_owner?, only: [:show]
 
   def index
   end
@@ -21,6 +21,7 @@ class BoothsController < ApplicationController
   end
 
   def show
+    @items = @booth.items
   end
 
   private

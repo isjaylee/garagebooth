@@ -1,8 +1,12 @@
 class ItemsController < ApplicationController
 
+  def new
+    @booth = Booth.find(params[:booth_id])
+    @item = Item.new(booth: @booth)
+  end
+
   def create
-    @garage = Garage.find(params[:garage_id])
-    @booth = @garage.booths.find(params[:booth_id])
+    @booth = Booth.find(params[:booth_id])
     @item = @booth.items.build(item_params)
     if @item.save
       redirect_to [@garage, @booth]
