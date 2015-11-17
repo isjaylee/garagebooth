@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: "users#dashboard", as: :dashboard
   get '/items/search', to: "items#search", as: :items_search
-  root "garages#index"
+  root "booths#index"
 end
