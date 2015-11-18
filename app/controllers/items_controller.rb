@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @booth = Booth.find(params[:booth_id])
     @item = Item.find(params[:id])
   end
 

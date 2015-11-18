@@ -1,5 +1,5 @@
 <div class="row">
-  <h1><%= @item.name %></h1>
+  <h1><%= @item.name %> - <%= number_to_currency(@item.price) %></h1>
 </div>
 <div class="row">
   <hr>
@@ -17,35 +17,41 @@
     </div>
   </div>
   <div class="large-5 columns">
-    <h4>This is a content section.</h4>
-    <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-    <div class="panel">
-      <h5>Header</h5>
-      <h6 class="subheader">Praesent placerat dui tincidunt elit suscipit sed.</h6>
-      <a href="#" class="small button">Add to Cart</a>
+    <h4><%= @item.name %></h4>
+    <p><%= @item.description %></p>
+  </div>
+</div>
+<div class="row">
+  <hr>
+  <div class="large-6 columns">
+    <h4>Contact Owner</h4>
+      <label>Name</label>
+      <input type="text" placeholder="Full Name" required>
+      
+      <label>Email</label>
+
+      <input type="email" placeholder="username@address.com" required>
+      
+      <label>Web Address</label>          
+      <input type="url" placeholder="http://www.url.com">
+      
+      <label>Your Message</label>
+      <textarea placeholder="Enter your message here" required></textarea>
+      
+    <input type="submit" class="nice blue radius button" value="Send Message">
+  </div>
+  <div class="large-6 columns">
+    <div id="map" class="clearfix">
     </div>
   </div>
 </div>
 <div class="row">
   <hr>
-  <div class="large-6 columns">
-    <h4>This is a content section.</h4>
-    <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-  </div>
-  <div class="large-6 columns">
-    <h4>This is a content section.</h4>
-    <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
-  </div>
-</div>
-<div class="row">
-  <hr>
   <div class="large-12 columns">
-    <h4>You might also like:</h4>
-    <img src="http://placehold.it/190x150&amp;text=[img]">
-    <img src="http://placehold.it/190x150&amp;text=[img]">
-    <img src="http://placehold.it/190x150&amp;text=[img]">
-    <img src="http://placehold.it/190x150&amp;text=[img]">
-    <img src="http://placehold.it/190x150&amp;text=[img]">
+    <h4>Other items in this booth</h4>
+    <% @booth.other_items(@booth, @item).each do |item| %>
+      <%= link_to image_tag("http://placehold.it/190x150&amp;text=[img]"), booth_item_path(@booth, item) %>
+    <% end %>
   </div>
 </div>
 <div class="row">

@@ -21,6 +21,13 @@
 
   <div class="row">
     <div class="large-4 columns">
+      <%= f.label :category_id, "Category" %>
+      <%= f.select :category_id, Category.all.map{ |f| [f.name, f.id] } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-4 columns">
       <%= f.label :price %>
       <%= f.text_field :price %>
     </div>

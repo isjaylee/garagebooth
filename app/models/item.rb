@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
 
   def self.search(params)
     items = Item.where(category_id: params[:category].to_i)
-    items = items.where("name ilike ?", params[:search])
+    items = items.where("name ilike ?", params[:search]) if params[:search].present?
     items
   end
 end
