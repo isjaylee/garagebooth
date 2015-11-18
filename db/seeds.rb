@@ -15,12 +15,22 @@ clothes = Category.where(name: "Clothes").first_or_create(name: "Clothes")
 
 user = User.create(email: "bob@example.com", password: "pw")
 
-booth = Booth.create(name: "My Booth",
-                     description: "this is my awesome booth",
-                     address1: "123 Main Street",
-                     city: "Saint Paul",
-                     state: "MN",
-                     zipcode: "55102",
-                     user_id: user.id,
-                     start_date: "2015/01/01",
-                     stop_date: "2015/01/15")
+10.times do
+  booth = Booth.create(name: Faker::Company.name,
+                       description: Faker::Lorem.sentence(3),
+                       address1: Faker::Address.street_address,
+                       city: "Saint Paul",
+                       state: "MN",
+                       zipcode: "55102",
+                       user_id: user.id,
+                       start_date: "2015/01/01",
+                       stop_date: "2015/01/15")
+end
+
+20.times do
+  Item.create(name: Faker::Commerce.product_name,
+              description: Faker::Lorem.sentence(3),
+              price: rand(1..100),
+              booth_id: rand(1..10),
+              category_id: rand(1..5))
+end

@@ -14,6 +14,7 @@ gem "font-awesome-rails"
 
 group :development do
   gem 'pry'
+  gem 'faker'
 end
 
 gem 'sdoc', '~> 0.4.0', group: :doc
