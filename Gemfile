@@ -11,6 +11,7 @@ gem 'devise', '~> 3.5'
 gem 'foundation-rails'
 gem "jquery-slick-rails"
 gem "font-awesome-rails"
+gem 'dragonfly', "~> 1.0.12"
 
 group :development do
   gem 'pry'

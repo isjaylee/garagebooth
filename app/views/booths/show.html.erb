@@ -6,7 +6,7 @@
         <div class="row booth-top">
 
           <div class="large-4 small-12 columns">
-            <img src="http://placehold.it/500x500&amp;text=Logo">
+            <%= image_tag(@booth.images.first.image.url) %>
             <div class="hide-for-small panel">
               <p>Edit Photo</p>
               <h3><%= @booth.name %></h3>

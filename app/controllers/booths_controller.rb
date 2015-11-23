@@ -12,6 +12,8 @@ class BoothsController < ApplicationController
 
   def create
     @booth = current_user.booths.build(booth_params)
+    @booth.images.build(image: params[:booth][:image][:image])
+
     if @booth.save
       redirect_to @booth
     else
