@@ -52,11 +52,11 @@
   <div class="row">
     <div class="large-4 columns">
       <%= f.label :start_date %>
-      <%= f.text_field :start_date, id: "start-date" %>
+      <%= f.text_field :start_date, id: "start-date", data: {"date-format" => "yyyy/mm/dd"} %>
     </div>
     <div class="large-4 columns end">
       <%= f.label :stop_date %>
-      <%= f.text_field :stop_date, id: "stop-date" %>
+      <%= f.text_field :stop_date, id: "stop-date", data: {"date-format" => "yyyy/mm/dd"} %>
     </div>
   </div>
 
