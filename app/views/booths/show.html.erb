@@ -6,9 +6,9 @@
         <div class="row booth-top">
 
           <div class="large-4 small-12 columns">
-            <%= image_tag(@booth.images.first.image.url) %>
+            <%= image_tag(@booth.images.first.image.thumb("540x400").url) %>
             <div class="hide-for-small panel">
-              <p>Edit Photo</p>
+              <p><%= link_to "Edit", edit_booth_path(@booth) %></p>
               <h3><%= @booth.name %></h3>
               <h5 class="subheader"><%= @booth.description %></h5>
             </div>

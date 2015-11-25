@@ -1,6 +1,6 @@
 class BoothsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :find_booth, only: [:show]
+  before_action :authenticate_user!, only: %i[new create]
+  before_action :find_booth, only: %i[show edit update]
   # before_action :is_booth_owner?, only: [:show]
 
   def index
@@ -24,6 +24,16 @@ class BoothsController < ApplicationController
 
   def show
     @items = @booth.items
+  end
+
+  def edit
+    @image = @booth.images.first
+  end
+
+  def update
+    @booth.update(booth_params)
+    @booth.images.first.update(image: params[:booth][:image][:image])
+    redirect_to @booth
   end
 
   private
