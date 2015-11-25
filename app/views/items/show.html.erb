@@ -6,15 +6,11 @@
   <hr>
   <div class="large-7 columns">
     <div class="items-show">
-      <div data-thumb="http://placehold.it/540x400">
-        <img src="http://placehold.it/540x400">
-      </div>
-      <div data-thumb="http://placehold.it/540x400">
-        <img src="http://placehold.it/540x400">
-      </div>
-      <div data-thumb="http://placehold.it/540x400">
-        <img src="http://placehold.it/540x400">
-      </div>
+      <% @item.images.each do |image| %>
+        <div data-thumb=<%= image.image.url %>>
+          <%= image_tag(image.image.thumb('540x400').url) %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="large-5 columns">

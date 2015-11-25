@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def create
     @booth = Booth.find(params[:booth_id])
     @item = @booth.items.build(item_params)
+    @item.images.build(image: params[:item][:image][:image])
     if @item.save
       redirect_to [@garage, @booth]
     else

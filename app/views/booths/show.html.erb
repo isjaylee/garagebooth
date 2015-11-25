@@ -29,10 +29,9 @@
             <div class="row">
               <% @items.each do |item| %>
                 <div class="large-4 small-6 columns end">
-                  <%= link_to image_tag("http://placehold.it/1000x1000&amp;text=Thumbnail"), booth_item_path(Booth.find(params[:id]), item) %>
-
+                  <%= link_to image_tag(item.images.first.image.url), booth_item_path(item.booth, item) %>
                   <div class="panel">
-                    <h5><%= link_to item.name, booth_item_path(Booth.find(params[:id]), item) %></h5>
+                    <h5><%= link_to item.name, booth_item_path(item.booth, item) %></h5>
                     <h6 class="subheader"><%= number_to_currency(item.price) %></h6>
                   </div>
                 </div>

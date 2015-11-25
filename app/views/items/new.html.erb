@@ -33,6 +33,15 @@
     </div>
   </div>
 
+  <%= f.fields_for :image do |image_field| %>
+    <div class="row">
+      <div class="large-6 columns">
+        <%= image_field.label :image %>
+        <%= image_field.file_field :image %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="large-1 columns">
       <%= f.submit "Add Item", class: "button primary" %>
