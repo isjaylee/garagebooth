@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :find_booth, only: %i[new create show edit update]
 
   def new
+    @booth = find_booth
     @item = Item.new(booth: @booth)
   end
 
   def create
+    @booth = find_booth
     @item = @booth.items.build(item_params)
     @item.images.build(image: params[:item][:image][:image])
     if @item.save
@@ -16,15 +17,18 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @booth = find_booth
+    @item = find_item
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @booth = find_booth
+    @item = find_item
   end
 
   def update
-    @item = Item.find(params[:id])
+    @booth = find_booth
+    @item = find_item
     @item.update(item_params)
     @item.images.create(image: params[:item][:image][:image])
     redirect_to [@booth, @item]
@@ -45,7 +49,11 @@ class ItemsController < ApplicationController
     end
 
     def find_booth
-      @booth = Booth.find(params[:booth_id])
+      Booth.find(params[:booth_id])
+    end
+
+    def find_item
+      Item.find(params[:id])
     end
 
 end
