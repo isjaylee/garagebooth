@@ -63,7 +63,7 @@
   <%= f.fields_for @image do |image_field| %>
     <div class="row">
       <div class="large-6 columns">
-        <%= image_field.label :image %>
+        <%= image_field.label :image, "Edit Image" %>
         <%= image_field.file_field :image %>
       </div>
     </div>
