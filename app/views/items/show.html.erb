@@ -7,9 +7,15 @@
   <hr>
   <div class="large-7 columns">
     <div class="items-show">
-      <% @item.images.each do |image| %>
-        <div data-thumb=<%= image.image.url %>>
-          <%= image_tag(image.image.thumb("540x400#").url) %>
+      <% if @item.images.present? %>
+        <% @item.images.each do |image| %>
+          <div data-thumb=<%= image.image.url %>>
+            <%= image_tag(image.image.thumb("540x400#").url) %>
+          </div>
+        <% end %>
+      <% else %>
+        <div data-thumb="http://placehold.it/540x400">
+          <%= image_tag("http://placehold.it/540x400") %>
         </div>
       <% end %>
     </div>
@@ -48,7 +54,7 @@
   <div class="large-12 columns">
     <h4>Other items in this booth</h4>
     <% @booth.other_items(@booth, @item).each do |item| %>
-      <%= link_to image_tag("http://placehold.it/190x150&amp;text=[img]"), booth_item_path(@booth, item) %>
+      <%= link_to image_tag(item.images.first.image.url), booth_item_path(@booth, item) %>
     <% end %>
   </div>
 </div>

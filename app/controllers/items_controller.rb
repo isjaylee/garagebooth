@@ -8,11 +8,19 @@ class ItemsController < ApplicationController
   def create
     @booth = find_booth
     @item = @booth.items.build(item_params)
-    @item.images.build(image: params[:item][:image][:image])
-    if @item.save
-      redirect_to [@booth, @item]
-    else
-      render :back
+    build_image
+
+    respond_to do |format|
+      if @item.save
+        format.html { redirect_to [@booth, @item], notice: "Item created successfully."}
+        format.json { render :show, status: :created, location: @item }
+      else
+        format.html { 
+          flash[:danger] = @item.errors.full_messages.to_sentence
+          render :new
+        }
+        format.json { render json: @item.errors, status: :unprocessible_entity }
+      end
     end
   end
 
@@ -54,6 +62,12 @@ class ItemsController < ApplicationController
 
     def find_item
       Item.find(params[:id])
+    end
+
+    def build_image
+      if params[:item][:image].present?
+        @item.images.build(image: params[:item][:image][:image])
+      end
     end
 
 end
