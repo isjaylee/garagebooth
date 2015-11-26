@@ -60,7 +60,7 @@
     </div>
   </div>
 
-  <%= f.fields_for @image do |image_field| %>
+  <%= f.fields_for :image do |image_field| %>
     <div class="row">
       <div class="large-6 columns">
         <%= image_field.label :image, "Edit Image" %>
@@ -69,10 +69,12 @@
     </div>
   <% end %>
 
-  <% if @image.present? %>
+  <% if @booth.images.present? %>
     <div class="row">
       <div class="large-6 columns">
-        <%= image_tag(@image.image.thumb("100x100#").url) %>
+        <% @booth.images.each do |image| %>
+          <%= image_tag(image.image.url) %>
+        <% end %>
       </div>
     </div>
   <% end %>
