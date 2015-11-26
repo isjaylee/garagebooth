@@ -1,0 +1,15 @@
+<% if @item.images.present? %>
+
+  <% @item.images.each do |image| %>
+    <div data-thumb=<%= image.image.url %>>
+      <%= image_tag(image.image.thumb("540x400#").url) %>
+    </div>
+  <% end %>
+
+<% else %>
+
+  <div data-thumb="http://placehold.it/540x400">
+    <%= image_tag("http://placehold.it/540x400") %>
+  </div>
+
+<% end %>

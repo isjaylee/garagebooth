@@ -1,13 +1,13 @@
 <div class="row">
-<h3>Search Results</h3>
-<hr>
+  <h3>Search Results</h3>
+  <hr>
 </div>
 <div class="row">
-  <div class="small-8 large-8 columns">
 
+  <div class="small-8 large-8 columns">
     <% @items.each do |item| %>
       <div class="row">
-        <%= link_to image_tag(item.image_or_default_one_hundred, {align: "left", style: "margin-right: 2em;"}), booth_item_path(item.booth, item) %>
+        <%= render partial: "items/search_items_images", locals: { item: item } %>
         <p><%= link_to item.name, booth_item_path(item.booth, item) %></p>
         <p><%= item.description %></p>
       </div>
@@ -15,8 +15,8 @@
         <hr>
       </div>
     <% end %>
-
   </div>
+
   <div class="small-4 large-4 columns">
     <%= form_tag items_search_path, method: :get do |f| %>
       <div class="row">
@@ -47,6 +47,7 @@
       </div>
     <% end %>
   </div>
+
 </div>
 <div class="row">
   <div class="small-8 large-8 columns right">

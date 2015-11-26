@@ -1,0 +1,5 @@
+<% if @booth.images.present? %>
+  <%= image_tag(@booth.images.first.image.thumb("540x500#").url) %>
+<% else %>
+  <%= image_tag("http://placehold.it/540x500") %>
+<% end %>

@@ -10,22 +10,6 @@ class Item < ActiveRecord::Base
     items
   end
 
-  def image_or_default
-    if self.images.present?
-      images.first.image.thumb("540x500#").url
-    else
-      "http://placehold.it/540x500"
-    end
-  end
-
-  def image_thumb_or_default
-    if self.images.present?
-      images.first.image.thumb("190x150#").url
-    else
-      "http://placehold.it/190x150"
-    end
-  end
-
   def image_or_default_one_hundred
     if self.images.present?
       images.first.image.thumb("100x100#").url
