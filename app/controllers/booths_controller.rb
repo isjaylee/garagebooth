@@ -11,7 +11,7 @@ class BoothsController < ApplicationController
 
   def create
     @booth = current_user.booths.build(booth_params)
-    @booth.images.build(image: params[:booth][:image][:image])
+    build_image
 
     if @booth.save
       redirect_to @booth
@@ -52,6 +52,12 @@ class BoothsController < ApplicationController
       if @booth.user != current_user
         redirect_to root_path
         flash[:alert] = "You are not authorized to view this booth."
+      end
+    end
+
+    def build_image
+      if params[:booth][:image].present?
+        @booth.images.build(image: params[:booth][:image][:image])
       end
     end
 end

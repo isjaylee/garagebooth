@@ -14,9 +14,9 @@ class Booth < ActiveRecord::Base
 
   def image_or_default
     if self.images.present?
-      images.first.image.thumb("540x400").url
+      images.first.image.thumb("540x500#").url
     else
-      "http://placehold.it/540x400"
+      "http://placehold.it/540x500"
     end
   end
 end

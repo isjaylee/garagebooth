@@ -29,15 +29,12 @@
   <hr>
   <div class="large-6 columns">
     <h4>Contact Owner</h4>
-      <label>Name</label>
+      <label>Your Name</label>
       <input type="text" placeholder="Full Name" required>
       
-      <label>Email</label>
+      <label>Your Email</label>
 
       <input type="email" placeholder="username@address.com" required>
-      
-      <label>Web Address</label>          
-      <input type="url" placeholder="http://www.url.com">
       
       <label>Your Message</label>
       <textarea placeholder="Enter your message here" required></textarea>
@@ -54,7 +51,7 @@
   <div class="large-12 columns">
     <h4>Other items in this booth</h4>
     <% @booth.other_items(@booth, @item).each do |item| %>
-      <%= link_to image_tag(item.images.first.image.url), booth_item_path(@booth, item) %>
+      <%= link_to image_tag(item.image_thumb_or_default), booth_item_path(@booth, item) %>
     <% end %>
   </div>
 </div>
