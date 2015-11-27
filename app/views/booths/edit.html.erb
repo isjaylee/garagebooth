@@ -73,7 +73,7 @@
     <div class="row">
       <div class="large-6 columns">
         <% @booth.images.each do |image| %>
-          <%= image_tag(image.image.url) %>
+          <%= image_tag(image.image.thumb("100x100#").url) %>
         <% end %>
       </div>
     </div>

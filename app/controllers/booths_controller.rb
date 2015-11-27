@@ -23,7 +23,7 @@ class BoothsController < ApplicationController
 
   def show
     @booth = find_booth
-    @items = @booth.items
+    @items = @booth.items.includes(:images)
   end
 
   def edit
