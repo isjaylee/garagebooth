@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 
   def show
     @booth = find_booth
-    @item = find_item
+    @item = @booth.items.find(params[:id])
   end
 
   def edit
@@ -58,10 +58,6 @@ class ItemsController < ApplicationController
 
     def find_booth
       Booth.find(params[:booth_id])
-    end
-
-    def find_item
-      Item.find(params[:id])
     end
 
     def build_image

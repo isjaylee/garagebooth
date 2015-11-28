@@ -9,9 +9,9 @@ class Booth < ActiveRecord::Base
 
   def other_items(booth, item)
     if booth.items.includes(:images).last(5).include?(item)
-      booth.items.last(6) - [item]
+      booth.items.includes(:images).last(6) - [item]
     else
-      booth.items.last(5)
+      booth.items.includes(:images).last(5)
     end
   end
 
