@@ -37,7 +37,7 @@
   <div class="large-12 columns">
     <h4>Other items in this booth</h4>
     <% @booth.other_items(@booth, @item).each do |item| %>
-      <%= render partial: "items/other_items_images", locals: { item: item} %>
+      <%= render partial: "items/image_or_default", locals: { item: item, thumb: "190x150" } %>
     <% end %>
   </div>
 </div>

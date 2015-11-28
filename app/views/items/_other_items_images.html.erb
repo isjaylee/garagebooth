@@ -1,5 +1,0 @@
-<% if item.images.present? %>
-  <%= link_to image_tag(item.images.first.image.thumb("190x150#").url), booth_item_path(@booth, item) %>
-<% else %>
-  <%= link_to image_tag("http://placehold.it/190x150"), booth_item_path(@booth, item) %>
-<% end %>

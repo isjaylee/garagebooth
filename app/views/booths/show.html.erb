@@ -6,7 +6,7 @@
         <div class="row booth-top">
 
           <div class="large-4 small-12 columns">
-            <%= render partial: "booths/image_or_default" %>
+            <%= render partial: "booths/image_or_default", locals: { booth: @booth, thumb: "540x500#" } %>
             <div class="hide-for-small panel">
               <p><%= link_to "Edit", edit_booth_path(@booth) %></p>
               <h3><%= @booth.name %></h3>
@@ -29,7 +29,7 @@
             <div class="row">
               <% @items.each do |item| %>
                 <div class="large-4 small-6 columns end">
-                  <%= render partial: "items/image_or_default", locals: { item: item } %>
+                  <%= render partial: "items/image_or_default", locals: { item: item, thumb: "200x200#" } %>
                   <div class="panel">
                     <h5><%= link_to item.name, booth_item_path(item.booth, item) %></h5>
                     <h6 class="subheader"><%= number_to_currency(item.price) %></h6>

@@ -40,42 +40,14 @@
   </div>
   <div class="small-12 large-12 columns">
     <div class="items">
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/500x500&amp;text=Thumbnail">
-        <div class="panel">
-        <p>Description</p>
+      <% @booths.each do |booth| %>
+        <div class="large-3 small-6 columns">
+          <%= render partial: "booths/image_or_default", locals: { booth: booth, thumb: "500x500"} %>
+          <div class="panel">
+            <p><%= link_to booth.name, booth_path(booth) %></p>
+          </div>
         </div>
-      </div>
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/500x500&amp;text=Thumbnail">
-        <div class="panel">
-        <p>Description</p>
-        </div>
-      </div>
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/500x500&amp;text=Thumbnail">
-        <div class="panel">
-        <p>Description</p>
-        </div>
-      </div>
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/500x500&amp;text=Thumbnail">
-        <div class="panel">
-        <p>Description</p>
-        </div>
-      </div>
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/500x500&amp;text=Thumbnail">
-        <div class="panel">
-        <p>Description</p>
-        </div>
-      </div>
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/500x500&amp;text=Thumbnail">
-        <div class="panel">
-        <p>Description</p>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

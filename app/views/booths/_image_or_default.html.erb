@@ -1,5 +1,5 @@
-<% if @booth.images.present? %>
-  <%= image_tag(@booth.images.first.image.thumb("540x500#").url) %>
+<% if booth.images.present? %>
+  <%= link_to image_tag(booth.images.first.image.thumb("#{thumb}#").url), booth_path(booth) %>
 <% else %>
-  <%= image_tag("http://placehold.it/540x500") %>
+  <%= link_to image_tag("http://placehold.it/#{thumb}"), booth_path(booth) %>
 <% end %>
