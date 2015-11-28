@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
 
   def search
     if params.present?
-      @items = Item.search(params)
+      @items = Item.includes(:images).includes(:booth).search(params)
     else
       @items = Item.all
     end

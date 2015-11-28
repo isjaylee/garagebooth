@@ -12,6 +12,7 @@ gem 'foundation-rails', '~> 5.5.3.2'
 gem 'jquery-slick-rails', '~> 1.5.8.1'
 gem 'font-awesome-rails', '~> 4.4.0.0'
 gem 'dragonfly', '~> 1.0.12'
+gem 'geocoder', '~> 1.2'
 
 group :development do
   gem 'pry', '~> 0.10.3-java'
