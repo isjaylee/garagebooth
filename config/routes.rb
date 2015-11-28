@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: "users#dashboard", as: :dashboard
   get '/items/search', to: "items#search", as: :items_search
+  post 'contact', to: 'messages#create'
   root "booths#index"
 end

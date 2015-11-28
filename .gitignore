@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore secrets variables
+/config/secrets.yml
+
+# Ignore secrets variables
+/config/local_env.yml

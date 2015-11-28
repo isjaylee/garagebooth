@@ -34,14 +34,14 @@ class BoothsController < ApplicationController
   def update
     @booth = find_booth
     @booth.update(booth_params)
-    @booth.images.first.update(image: params[:booth][:image][:image])
+    build_image
     redirect_to @booth
   end
 
   private
 
     def booth_params
-      params.require(:booth).permit(:name, :address1, :address2, :city, :state, :zipcode, :start_date, :stop_date)
+      params.require(:booth).permit(:name, :email, :address1, :address2, :city, :state, :zipcode, :start_date, :stop_date)
     end
 
     def find_booth

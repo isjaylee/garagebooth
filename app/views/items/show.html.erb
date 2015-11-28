@@ -19,17 +19,13 @@
   <hr>
   <div class="large-6 columns">
     <h4>Contact Owner</h4>
-      <label>Your Name</label>
-      <input type="text" placeholder="Full Name" required>
-      
-      <label>Your Email</label>
-
-      <input type="email" placeholder="username@address.com" required>
-      
-      <label>Your Message</label>
-      <textarea placeholder="Enter your message here" required></textarea>
-      
-    <input type="submit" class="nice blue radius button" value="Send Message">
+    <%= form_for Message.new, url: contact_path do |message_form| %>
+      <%= message_form.hidden_field :owner_email, value: "#{@item.booth.email}" %>
+      <%= message_form.text_field :name, placeholder: "Your Name" %>
+      <%= message_form.email_field :email, placeholder: "Your Email"%>
+      <%= message_form.text_area :content, placeholder: "I want to know more about #{@item.name}!", rows: "10" %>
+      <%= message_form.submit "Send", class: "button" %>
+    <% end %>
   </div>
   <div class="large-6 columns">
     <div id="map" class="clearfix">
