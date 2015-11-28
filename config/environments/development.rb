@@ -42,9 +42,10 @@ Rails.application.configure do
   config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true
-    Bullet.bullet_logger = true
     Bullet.console = true
     Bullet.rails_logger = true
+    Bullet.unused_eager_loading_enable = false
+    # Bullet.bullet_logger = true
     # Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
     # Bullet.growl = true
     # Bullet.xmpp = { :account  => 'bullets_account@jabber.org',

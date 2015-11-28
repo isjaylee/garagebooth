@@ -9,10 +9,10 @@ class Item < ActiveRecord::Base
     # Get nearby booths, get all their items, then search
     # those items. ".map" returns array and we need
     # ActiveRecord Relation.
-    booths = Booth.near(params[:location], 20)
+    booths = params[:location].present? ? Booth.near(params[:location], 20) : Booth.all
     items = get_booths_items(booths, params)
     items = Item.where(id: items)
-    items = items.where("name ilike ?", params[:search]) if params[:search].present?
+    items = items.where("name ilike ?", "%#{params[:search]}%") if params[:search].present?
     items
   end
 
