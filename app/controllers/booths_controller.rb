@@ -3,12 +3,29 @@ class BoothsController < ApplicationController
   # before_action :is_booth_owner?, only: [:show]
 
   def index
+    visitor_latitude = request.location.latitude
+    visitor_longitude = request.location.longitude
+    # visitor_latitude = 44.9778
+    # visitor_longitude = -93.2650
+    @booths = Booth.near([visitor_latitude, visitor_longitude], 20).includes(:images)
+  end
+
+  def nearby_booths
     # visitor_latitude = request.location.latitude
     # visitor_longitude = request.location.longitude
     visitor_latitude = 44.9778
     visitor_longitude = -93.2650
-
-    @booths = Booth.near([visitor_latitude, visitor_longitude], 20).includes(:images)
+    render json: Booth.near([visitor_latitude, visitor_longitude], 20).includes(:images).as_json(only: [:name,
+                                                                                                        :address1,
+                                                                                                        :address2,
+                                                                                                        :city,
+                                                                                                        :state,
+                                                                                                        :zipcode,
+                                                                                                        :description,
+                                                                                                        :start_date,
+                                                                                                        :stop_date,
+                                                                                                        :latitude,
+                                                                                                        :longitude])
   end
 
   def new

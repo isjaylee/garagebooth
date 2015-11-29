@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  get '/nearby_booths', to: "booths#nearby_booths", as: :nearby_booths
   get '/dashboard', to: "users#dashboard", as: :dashboard
   get '/items/search', to: "items#search", as: :items_search
   post 'contact', to: 'messages#create'
