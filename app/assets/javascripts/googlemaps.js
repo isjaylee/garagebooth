@@ -49,4 +49,6 @@ function initialize() {
   var infoWindow = new google.maps.InfoWindow();
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+if (window.location.pathname === '/') {
+  google.maps.event.addDomListener(window, 'load', initialize);
+}

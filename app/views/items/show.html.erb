@@ -28,7 +28,7 @@
     <% end %>
   </div>
   <div class="large-6 columns">
-    <div id="map" class="clearfix">
+    <div id="item-map" class="clearfix">
     </div>
   </div>
 </div>
@@ -44,3 +44,25 @@
 <div class="row">
   <hr>
 </div>
+
+<script type="text/javascript">
+  function itemMap() {
+    var mapCanvas = document.getElementById('item-map');
+    var mapOptions = {
+      center: new google.maps.LatLng(<%= @item.booth.latitude %>, <%= @item.booth.longitude %>),
+      zoom: 14,
+      scrollwheel: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    var map = new google.maps.Map(mapCanvas, mapOptions)
+
+    var myLatLng = {lat: <%= @item.booth.latitude %>, lng: <%= @item.booth.longitude %>};
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
+  }
+  google.maps.event.addDomListener(window, 'load', itemMap);
+</script>
