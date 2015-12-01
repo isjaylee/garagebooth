@@ -2,6 +2,7 @@
   height: 485px;
   width: 100%;
   padding: 0;
+  margin: 0;
 }
 
 .items {
@@ -65,12 +66,12 @@
 // end Footer
 
 .reasons {
-  background: #2980b9;
+  background: #fff;
   p {
-    color: white;
+    color: #6E6E6E;
   }
   .fa {
-    color: white;
+    color: #6E6E6E;
     padding-bottom: 2rem;
   }
   i {
@@ -80,6 +81,9 @@
 
 .reason-title {
   margin-bottom: 4rem;
+  h2 {
+    padding-top: 2rem;
+  }
 }
 
 .featured {
@@ -160,4 +164,8 @@ form label {
 
 .booth-top {
   padding-top: 2em;
+}
+
+.featured-section {
+  background: #EBEBEB;
 }
