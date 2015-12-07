@@ -20,4 +20,15 @@ group :development do
   gem 'bullet', '~> 4.14.10'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.4'
+  gem 'capybara', '~> 2.5'
+  gem 'guard-rspec', '~> 4.6'
+  gem 'factory_girl_rails', '~> 4.5'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 1.5'
+end
+
 gem 'sdoc', '~> 0.4.0', group: :doc
