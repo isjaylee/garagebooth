@@ -16,7 +16,6 @@ gem 'geocoder', '~> 1.2'
 
 group :development do
   gem 'pry', '~> 0.10.3-java'
-  gem 'faker', '~> 1.5.0'
   gem 'bullet', '~> 4.14.10'
 end
 
@@ -25,6 +24,7 @@ group :development, :test do
   gem 'capybara', '~> 2.5'
   gem 'guard-rspec', '~> 4.6'
   gem 'factory_girl_rails', '~> 4.5'
+  gem 'faker', '~> 1.5.0'
 end
 
 group :test do

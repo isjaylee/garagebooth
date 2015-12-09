@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "User clicks on header logo" do
+feature "User clicks on header logo" do
   scenario "they see the homepage" do
     visit root_path
     click_on "Garage Booth"
