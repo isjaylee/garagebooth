@@ -19,7 +19,7 @@ describe BoothsController do
     end
 
     describe "#index" do
-      it "should renders homepage" do
+      it "should render homepage" do
         get :index
         expect(response.status).to eq(200)
         expect(subject).to render_template(:index)

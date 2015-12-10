@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update]
 
   def new
     @booth = find_booth
