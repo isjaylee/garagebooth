@@ -29,6 +29,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.5'
+  gem 'shoulda-matchers', '~> 3.0'
 end
 
 gem 'sdoc', '~> 0.4.0', group: :doc

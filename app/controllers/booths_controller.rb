@@ -56,9 +56,12 @@ class BoothsController < ApplicationController
 
   def update
     @booth = find_booth
-    @booth.update(booth_params)
-    build_image
-    redirect_to @booth
+    if @booth.update(booth_params)
+      build_image
+      redirect_to @booth
+    else
+      render :edit
+    end
   end
 
   private
