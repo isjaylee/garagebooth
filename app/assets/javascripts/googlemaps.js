@@ -22,7 +22,11 @@ function initialize() {
           (function (marker, data) {
               google.maps.event.addListener(marker, "click", function (e) {
                   //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                  infoWindow.setContent("<div style='width:200px;min-height:40px'>" + data.name + "</div>");
+                  infoWindow.setContent("<a href='/booths/" + data.id + "'>" + data.name + "</a>" +
+                                        "<br />" +
+                                        data.address1 + 
+                                        "<br />" +
+                                        data.city + ", " + data.state + " " + data.zipcode);
                   infoWindow.open(map, marker);
               });
           })(marker, data);
