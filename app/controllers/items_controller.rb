@@ -61,6 +61,10 @@ class ItemsController < ApplicationController
       Booth.find(params[:booth_id])
     end
 
+    def find_item
+      Item.find(params[:id])
+    end
+
     def build_image
       if params[:item][:image].present?
         @item.images.build(image: params[:item][:image][:image])

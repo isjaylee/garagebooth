@@ -7,7 +7,7 @@
   <hr>
   <div class="large-7 columns">
     <div class="items-show">
-      <%= render partial: "items/item_image" %>
+      <%= render partial: "items/item_image", locals: { item: @item, thumb: "500x500"} %>
     </div>
   </div>
   <div class="large-5 columns">

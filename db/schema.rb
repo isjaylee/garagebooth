@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 20151128002809) do
   enable_extension "plpgsql"
 
   create_table "booths", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "address1",    limit: 255
-    t.string   "address2",    limit: 255
-    t.string   "city",        limit: 255
-    t.string   "state",       limit: 255
-    t.string   "zipcode",     limit: 255
-    t.string   "email",       limit: 255
-    t.string   "phone",       limit: 255
+    t.string   "name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "email"
+    t.string   "phone"
     t.text     "description"
     t.datetime "start_date"
     t.datetime "stop_date"
@@ -38,20 +38,20 @@ ActiveRecord::Schema.define(version: 20151128002809) do
   add_index "booths", ["user_id"], name: "index_booths_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string "name"
   end
 
   create_table "images", force: :cascade do |t|
-    t.string   "image_uid",      limit: 255
-    t.string   "image_name",     limit: 255
-    t.string   "imageable_id",   limit: 255
-    t.string   "imageable_type", limit: 255
+    t.string   "image_uid"
+    t.string   "image_name"
+    t.string   "imageable_id"
+    t.string   "imageable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.text     "description"
     t.decimal  "price"
     t.datetime "created_at"
@@ -64,22 +64,22 @@ ActiveRecord::Schema.define(version: 20151128002809) do
   add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "confirmation_token",     limit: 255
+    t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email",      limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.string   "unconfirmed_email"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

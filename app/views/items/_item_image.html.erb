@@ -1,8 +1,8 @@
 <% if @item.images.present? %>
 
   <% @item.images.each do |image| %>
-    <div data-thumb=<%= image.image.url %>>
-      <%= image_tag(image.image.thumb("540x400#").url) %>
+    <div data-thumb=<%= image.image.thumb("#{thumb}").url %>>
+      <%= image_tag(image.image.thumb("#{thumb}").url) %>
     </div>
   <% end %>
 
