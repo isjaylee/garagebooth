@@ -25,8 +25,9 @@
               <td><%= link_to booth.name, booth_path(booth.uid) %></td>
               <td><%= booth.address1 %></td>
               <td>
-                <%= link_to "Edit", edit_booth_path(booth.uid) %>
-                <%= link_to "Delete", booth_path(booth.uid), method: :delete, data: {confirm: "Are you sure?"} %>
+                <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_booth_path(booth.uid), title: "Edit Booth" %>
+                <%= link_to "<i class='fa fa-shopping-basket'></i>".html_safe, booth_items_path(booth.uid), title: "Items" %>
+                <%= link_to "<i class='fa fa-trash'></i>".html_safe, booth_path(booth.uid), method: :delete, data: {confirm: "Are you sure?"} %>
               </td>
             </tr>
           <% end %>

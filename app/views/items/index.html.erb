@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h2><%= @booth.name %> Items</h2>
+    <%= link_to "+ Add Item", new_booth_item_path(@booth.uid), class: "small button" %>
+    <table>
+      <thead>
+        <tr>
+          <th width="200">Name</th>
+          <th>Description</th>
+          <th width="150">Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.description %></td>
+            <td><%= number_to_currency(item.price) %></td>
+            <td>
+              <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_booth_item_path(@booth.uid, item), title: "Edit Item" %>
+              <%= link_to "<i class='fa fa-trash'></i>".html_safe, booth_item_path(@booth.uid, item), method: :delete, data: {confirm: "Are you sure?"} %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

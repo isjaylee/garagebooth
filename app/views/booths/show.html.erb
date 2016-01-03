@@ -8,7 +8,6 @@
           <div class="large-4 small-12 columns">
             <%= render partial: "booths/image_or_default", locals: { booth: @booth, thumb: "540x500#" } %>
             <div class="hide-for-small panel">
-              <p><%= link_to "Edit", edit_booth_path(@booth.uid) %></p>
               <h3><%= @booth.name %></h3>
               <h5 class="subheader"><%= @booth.description %></h5>
             </div>

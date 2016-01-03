@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
 
+  def index
+    @booth = find_booth
+    @items = @booth.items
+  end
+
   def new
     @booth = find_booth
     @item = Item.new(booth: @booth)
@@ -13,7 +18,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to booth_item_path(@booth.uid, @item), notice: "Item created successfully."}
+        format.html { redirect_to booth_items_path(@booth.uid, @item), notice: "Item created successfully."}
         format.json { render :show, status: :created, location: @item }
       else
         format.html { 
