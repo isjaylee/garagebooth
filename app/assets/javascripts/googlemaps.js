@@ -22,7 +22,7 @@ function initialize() {
           (function (marker, data) {
               google.maps.event.addListener(marker, "click", function (e) {
                   //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                  infoWindow.setContent("<a href='/booths/" + data.id + "'>" + data.name + "</a>" +
+                  infoWindow.setContent("<a href='/booths/" + data.uid + "'>" + data.name + "</a>" +
                                         "<br />" +
                                         data.address1 + 
                                         "<br />" +

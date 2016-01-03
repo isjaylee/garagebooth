@@ -15,7 +15,7 @@ class BoothsController < ApplicationController
     # visitor_longitude = request.location.longitude
     visitor_latitude = 44.9778
     visitor_longitude = -93.2650
-    render json: Booth.near([visitor_latitude, visitor_longitude], 20).includes(:images).as_json(only: [:id,
+    render json: Booth.near([visitor_latitude, visitor_longitude], 20).includes(:images).as_json(only: [:uid,
                                                                                                         :name,
                                                                                                         :address1,
                                                                                                         :address2,
