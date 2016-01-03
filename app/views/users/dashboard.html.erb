@@ -22,11 +22,11 @@
         <tbody>
           <% @booths.each do |booth| %>
             <tr>
-              <td><%= link_to booth.name, booth_path(booth) %></td>
+              <td><%= link_to booth.name, booth_path(booth.uid) %></td>
               <td><%= booth.address1 %></td>
               <td>
-                <%= link_to "Edit", edit_booth_path(booth) %>
-                <%= link_to "Delete", booth_path(booth), method: :delete, data: {confirm: "Are you sure?"} %>
+                <%= link_to "Edit", edit_booth_path(booth.uid) %>
+                <%= link_to "Delete", booth_path(booth.uid), method: :delete, data: {confirm: "Are you sure?"} %>
               </td>
             </tr>
           <% end %>

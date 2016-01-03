@@ -3,6 +3,7 @@ class Booth < ActiveRecord::Base
   has_many :items
   has_many :images, as: :imageable
   validates :name, :email, :address1, :city, :state, :zipcode, :start_date, :stop_date, presence: true
+  before_create :set_uid
 
   geocoded_by :full_address
   after_validation :geocode
@@ -17,5 +18,9 @@ class Booth < ActiveRecord::Base
 
   def full_address
     [address1, address2, city, state, zipcode].join(', ')
+  end
+
+  def set_uid
+    self.uid = rand(100000..999999)
   end
 end

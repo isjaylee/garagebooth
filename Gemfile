@@ -16,7 +16,7 @@ gem 'dropbox-sdk', '~> 1.6'
 gem 'geocoder', '~> 1.2'
 
 group :development do
-  gem 'pry', '~> 0.10.3-java'
+  gem 'pry', '~> 0.10.3'
   gem 'bullet', '~> 4.14.10'
 end
 

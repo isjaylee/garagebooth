@@ -9,6 +9,7 @@ class InitialSchema < ActiveRecord::Migration
       t.string    :zipcode
       t.string    :email
       t.string    :phone
+      t.integer   :uid, index: { unique: true}
       t.text      :description
       t.datetime  :start_date
       t.datetime  :stop_date

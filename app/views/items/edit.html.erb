@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<%= form_for [@booth, @item] do |f| %>
+<%= form_for([@booth, @item], url: booth_item_path(@booth.uid, @item)) do |f| %>
   <div class="row">
     <div class="large-12 columns">
       <%= f.label :name %>

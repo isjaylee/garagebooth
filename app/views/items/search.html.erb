@@ -8,7 +8,7 @@
     <% @items.each do |item| %>
       <div class="row">
         <%= render partial: "items/search_items_images", locals: { item: item } %>
-        <p><%= link_to item.name, booth_item_path(item.booth, item) %> - <%= number_to_currency(item.price) %></p>
+        <p><%= link_to item.name, booth_item_path(item.booth.uid, item) %> - <%= number_to_currency(item.price) %></p>
         <p><%= item.description %></p>
       </div>
       <div class="row">

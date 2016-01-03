@@ -38,7 +38,7 @@ class BoothsController < ApplicationController
     build_image
 
     if @booth.save
-      redirect_to @booth
+      redirect_to booth_path(@booth.uid)
     else
       flash[:alert] = @booth.errors.full_messages
       render :new
@@ -59,7 +59,7 @@ class BoothsController < ApplicationController
     @booth = find_booth
     if @booth.update(booth_params)
       build_image
-      redirect_to @booth
+      redirect_to booth_path(@booth.uid)
     else
       render :edit
     end
@@ -72,7 +72,7 @@ class BoothsController < ApplicationController
     end
 
     def find_booth
-      Booth.find(params[:id])
+      Booth.find_by(uid: params[:uid])
     end
 
     def is_booth_owner?

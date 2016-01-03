@@ -65,7 +65,7 @@
         <div class="large-3 small-6 columns">
           <%= render partial: "booths/image_or_default", locals: { booth: booth, thumb: "500x500"} %>
           <div class="panel">
-            <p><%= link_to booth.name, booth_path(booth) %></p>
+            <p><%= link_to booth.name, booth_path(booth.uid) %></p>
           </div>
         </div>
       <% end %>

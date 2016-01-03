@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to [@booth, @item], notice: "Item created successfully."}
+        format.html { redirect_to booth_item_path(@booth.uid, @item), notice: "Item created successfully."}
         format.json { render :show, status: :created, location: @item }
       else
         format.html { 
@@ -39,8 +39,8 @@ class ItemsController < ApplicationController
     @booth = find_booth
     @item = find_item
     @item.update(item_params)
-    @item.images.create(image: params[:item][:image][:image])
-    redirect_to [@booth, @item]
+    @item.images.create(image: params[:item][:image][:image]) if params[:item][:image].present?
+    redirect_to booth_item_path(@booth.uid, @item)
   end
 
   def search
@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
     end
 
     def find_booth
-      Booth.find(params[:booth_id])
+      Booth.find_by(uid: params[:booth_uid])
     end
 
     def find_item

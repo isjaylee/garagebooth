@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151128002809) do
     t.string   "zipcode"
     t.string   "email"
     t.string   "phone"
+    t.integer  "uid"
     t.text     "description"
     t.datetime "start_date"
     t.datetime "stop_date"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151128002809) do
     t.float    "longitude"
   end
 
+  add_index "booths", ["uid"], name: "index_booths_on_uid", unique: true, using: :btree
   add_index "booths", ["user_id"], name: "index_booths_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
