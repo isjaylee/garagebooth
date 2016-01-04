@@ -5,6 +5,8 @@ class Item < ActiveRecord::Base
   has_many :images, as: :imageable
   validates :name, :description, :price, presence: true
 
+  default_scope { where(archived: false) }
+
   def self.search(params)
     # Need to get items based on booth location.
     # Get nearby booths, get all their items, then search

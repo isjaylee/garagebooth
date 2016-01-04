@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @booth = find_booth
-    @items = @booth.items.where(archived: false)
+    @items = @booth.items
   end
 
   def new

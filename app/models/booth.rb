@@ -9,6 +9,8 @@ class Booth < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
+  default_scope { where(archived: false) }
+
   def other_items(booth, item)
     if booth.items.includes(:images).last(5).include?(item)
       booth.items.includes(:images).last(6) - [item]

@@ -74,7 +74,7 @@ class BoothsController < ApplicationController
   private
 
     def booth_params
-      params.require(:booth).permit(:name, :email, :address1, :address2, :city, :state, :zipcode, :start_date, :stop_date, :archived)
+      params.require(:booth).permit(:name, :email, :address1, :address2, :city, :state, :zipcode, :start_date, :stop_date)
     end
 
     def find_booth
