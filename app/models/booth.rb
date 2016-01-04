@@ -1,4 +1,5 @@
 class Booth < ActiveRecord::Base
+  include SharedMethods
   belongs_to :user
   has_many :items
   has_many :images, as: :imageable

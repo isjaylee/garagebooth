@@ -65,10 +65,16 @@ class BoothsController < ApplicationController
     end
   end
 
+  def destroy
+    @booth = find_booth
+    @booth.archive
+    redirect_to dashboard_path
+  end
+
   private
 
     def booth_params
-      params.require(:booth).permit(:name, :email, :address1, :address2, :city, :state, :zipcode, :start_date, :stop_date)
+      params.require(:booth).permit(:name, :email, :address1, :address2, :city, :state, :zipcode, :start_date, :stop_date, :archived)
     end
 
     def find_booth

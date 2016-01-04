@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  include SharedMethods
   belongs_to :booth
   belongs_to :category
   has_many :images, as: :imageable

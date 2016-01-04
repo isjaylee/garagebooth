@@ -13,6 +13,7 @@ class InitialSchema < ActiveRecord::Migration
       t.text      :description
       t.datetime  :start_date
       t.datetime  :stop_date
+      t.boolean   :archived, default: false
       t.timestamps
     end
 
@@ -20,6 +21,7 @@ class InitialSchema < ActiveRecord::Migration
       t.string  :name
       t.text    :description
       t.decimal :price
+      t.boolean :archived, default: false
       t.timestamps
     end
 

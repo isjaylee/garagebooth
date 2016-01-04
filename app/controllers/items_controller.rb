@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
+  before_action :belongs_to_user?, only: %i[edit update]
 
   def index
     @booth = find_booth
-    @items = @booth.items
+    @items = @booth.items.where(archived: false)
   end
 
   def new
@@ -48,6 +49,13 @@ class ItemsController < ApplicationController
     redirect_to booth_item_path(@booth.uid, @item)
   end
 
+  def destroy
+    @booth = find_booth
+    @item = find_item
+    @item.archive
+    redirect_to booth_items_path(@booth.uid)
+  end
+
   def search
     if params.present?
       @items = Item.includes(:images).includes(:booth).search(params)
@@ -73,6 +81,13 @@ class ItemsController < ApplicationController
     def build_image
       if params[:item][:image].present?
         @item.images.build(image: params[:item][:image][:image])
+      end
+    end
+
+    def belongs_to_user?
+      if current_user != Item.find(params[:id]).booth.user
+        flash[:alert] = "You are not the owner of this item!"
+        redirect_to root_path
       end
     end
 

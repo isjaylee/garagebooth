@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20151128002809) do
     t.text     "description"
     t.datetime "start_date"
     t.datetime "stop_date"
+    t.boolean  "archived",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20151128002809) do
     t.string   "name"
     t.text     "description"
     t.decimal  "price"
+    t.boolean  "archived",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "booth_id"

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="large-12 columns">
-    <h2><%= @booth.name %> Items</h2>
+    <h2><%= link_to @booth.name, booth_path(@booth.uid) %> Items</h2>
     <%= link_to "+ Add Item", new_booth_item_path(@booth.uid), class: "small button" %>
     <table>
       <thead>
