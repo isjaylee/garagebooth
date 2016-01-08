@@ -1,6 +1,6 @@
 class BoothsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  # before_action :is_booth_owner?, only: [:show]
+  before_action :is_booth_owner?, only: %i[edit update]
 
   def index
     # visitor_latitude = request.location.latitude
@@ -82,6 +82,7 @@ class BoothsController < ApplicationController
     end
 
     def is_booth_owner?
+      @booth = find_booth
       if @booth.user != current_user
         redirect_to root_path
         flash[:alert] = "You are not authorized to view this booth."
