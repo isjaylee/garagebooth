@@ -16,11 +16,11 @@ gem 'dropbox-sdk', '~> 1.6'
 gem 'geocoder', '~> 1.2'
 
 group :development do
-  gem 'pry', '~> 0.10.3'
   gem 'bullet', '~> 4.14.10'
 end
 
 group :development, :test do
+  gem 'pry', '~> 0.10.3'
   gem 'rspec-rails', '~> 3.4'
   gem 'capybara', '~> 2.5'
   gem 'guard-rspec', '~> 4.6'

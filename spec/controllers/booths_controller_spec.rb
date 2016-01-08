@@ -45,7 +45,7 @@ describe BoothsController do
           }.to change{Booth.count}.by(1)
           expect(assigns(:booth)).to be_a(Booth)
           expect(assigns(:booth)).to be_persisted
-          expect(subject).to redirect_to booth_path(Booth.last)
+          expect(subject).to redirect_to booth_path(Booth.last.uid)
         end
       end
 
@@ -67,7 +67,7 @@ describe BoothsController do
       describe "given booth parameters" do
         it "should assign the requested booth" do
           @booth = FactoryGirl.create(:booth)
-          get :show, { id: @booth }
+          get :show, { uid: @booth.uid }
           expect(response).to be_successful
         end
       end
@@ -76,7 +76,7 @@ describe BoothsController do
     describe "#edit" do
       it "assigns the requested booth" do
         @booth = FactoryGirl.create(:booth)
-        get :edit, { id: @booth }
+        get :edit, { uid: @booth.uid }
         expect(assigns(:booth)).to eq(@booth)
       end
     end
@@ -97,14 +97,13 @@ describe BoothsController do
                             stop_date: "2015/01/05",
                             email: @user.email }
         end
-
         it "should update the requested booth" do
           expect {
-            put :update, { id: @booth.to_param, booth: @valid_params }
+            put :update, { uid: @booth.uid.to_param, booth: @valid_params }
           }.to_not change(Booth, :count)
           expect(assigns(:booth)).to be_a(Booth)
           expect(assigns(:booth)).to be_persisted
-          expect(subject).to redirect_to booth_path(@booth)
+          expect(subject).to redirect_to booth_path(@booth.uid)
         end
       end
 
@@ -115,7 +114,7 @@ describe BoothsController do
 
         it "should not update requested booth" do
           expect {
-            put :update, { id: @booth.to_param, booth: @invalid_params }
+            put :update, { uid: @booth.uid.to_param, booth: @invalid_params }
           }.to_not change(Booth, :count)
           expect(subject).to render_template(:edit)
         end
